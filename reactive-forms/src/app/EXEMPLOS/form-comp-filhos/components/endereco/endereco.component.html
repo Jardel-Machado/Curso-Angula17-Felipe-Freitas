@@ -1,0 +1,16 @@
+<div [formGroup]="pessoaForm">
+  <div formGroupName="endereco">
+      <h4>Endereço:</h4>
+      <label for="street">Rua:</label>
+      <input type="text" id="street" formControlName="rua">
+      @if(pessoaForm.get('endereco')?.get('rua')?.hasError('required')){
+      <p>A rua é obrigatória</p>
+    }
+
+      <label for="numero">Número:</label>
+      <input type="number" id="numero" formControlName="numero">
+       @if(pessoaForm.get('endereco')?.get('numero')?.hasError('required')){
+      <p>O número é obrigatório</p>
+    }
+  </div>
+</div>

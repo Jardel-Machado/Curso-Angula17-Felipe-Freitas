@@ -1,0 +1,23 @@
+<form [formGroup]="musicasForm">
+  <div formArrayName="musicas">
+    <button (click)="adicionarMusica()">+ Adicionar</button>
+    <br/><br/>
+    @for (musica of musicas.controls; track $index){
+      <div [formGroupName]="$index">
+        <label [for]="'titulo-' + $index">Título:</label>
+        <input type="text" [id]="'titulo-' + $index" formControlName="titulo"/>
+
+        <br/><br/>
+
+        <label [for]="'banda-' + $index">Banda:</label>
+        <input type="text" [id]="'banda-' + $index" formControlName="banda"/>
+
+        <button (click)="removerMusica($index)">- Remover</button>
+      </div>
+    }
+  </div>
+
+
+  <p>Form Músicas válido: {{ musicasForm.valid }}</p>
+  <p>Form Array válido: {{ musicas.valid }}</p>
+</form>

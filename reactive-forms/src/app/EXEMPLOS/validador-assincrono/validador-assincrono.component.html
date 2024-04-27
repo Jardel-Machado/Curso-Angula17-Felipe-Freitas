@@ -1,0 +1,18 @@
+<label for="name"></label>
+<input type="text" id="name" [formControl]="nome" />
+
+<div>
+  @if(nome.pending){
+  <p style="color: orange">Validando...</p>
+  }
+
+  @if(!nome.pending && !nome.hasError('userValidator') && nome.valid && nome.dirty){
+  <p style="color: green">Usuário existente!</p>
+  }
+
+  @if(!nome.pending && nome.hasError('userValidator') && !nome.valid && nome.dirty){
+  <p style="color: red">Usuário inexistente!</p>
+  }
+</div>
+
+<p>Valido: {{ nome.valid }}</p>

@@ -1,0 +1,15 @@
+<form [formGroup]="senhaForm">
+  <input type="text" placeholder="Senha" formControlName="senha"> <br/>
+  <input type="text" placeholder="Confirmação de Senha:" formControlName="confirmacaoSenha">
+  <div>
+    @if (senhaForm.get('confirmacaoSenha')?.hasError('invalidPassword')) {
+      <p>Confirmação de Senha inválida!</p>
+    }
+  </div>
+
+</form>
+
+<button (click)="mostrarForm()">MOSTRAR FORM</button>
+
+<p>Senha Form Válido: {{ senhaForm.valid }}</p>
+<p>Confirmação Senha Válido: {{ senhaForm.get('confirmacaoSenha')?.valid }}</p>

@@ -1,0 +1,6 @@
+<form [formGroup]="pessoaForm">
+  <input type="text" placeholder="Nome:" formControlName="nome"/> <br/>
+  <input type="email" placeholder="Email:" formControlName="email"/>
+</form>
+
+<button (click)="markNomeAsTouched()">Nome Touched</button>

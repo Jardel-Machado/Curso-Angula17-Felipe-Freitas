@@ -1,0 +1,45 @@
+<form [formGroup]="pessoaForm" (ngSubmit)="onFormSubmit()">
+  <h4>Pessoa:</h4>
+  <label for="name">Nome:</label>
+  <input type="text" id="name" formControlName="nome">
+  @if(pessoaForm.get('nome')?.hasError('required')){
+    <p>O nome é obrigatório</p>
+  }
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" formControlName="email">
+  @if(pessoaForm.get('email')?.hasError('required')){
+    <p>O Email é obrigatório</p>
+  }
+
+  <div formGroupName="endereco">
+    <h4>Endereço:</h4>
+    <label for="street">Rua:</label>
+    <input type="text" id="street" formControlName="rua">
+    @if(pessoaForm.get('endereco')?.get('rua')?.hasError('required')){
+    <p>A rua é obrigatória</p>
+  }
+
+    <label for="numero">Número:</label>
+    <input type="number" id="numero" formControlName="numero">
+     @if(pessoaForm.get('endereco')?.get('numero')?.hasError('required')){
+    <p>O número é obrigatório</p>
+  }
+  </div>
+  
+  <div formArrayName="musicas">
+    <h4>Músicas:</h4>
+
+    @for (musica of musicas.controls; track $index) {
+      <div>
+        <label [for]="'musica-' + $index">Música {{ $index + 1 }}:</label>
+        <input type="text" [id]="'musica-' + $index" [formControlName]="$index"/>
+        @if(musicas.at($index).hasError('required')){
+        <p>A música é obrigatória</p>
+      }
+      </div>
+    }
+  </div>
+
+  <button type="submit" [disabled]="!pessoaForm.valid">Enviar</button>
+</form>

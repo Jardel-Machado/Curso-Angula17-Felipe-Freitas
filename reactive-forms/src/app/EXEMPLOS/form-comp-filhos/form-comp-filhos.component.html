@@ -1,0 +1,19 @@
+<form [formGroup]="pessoaForm" >
+  <h4>Pessoa:</h4>
+  <label for="name">Nome:</label>
+  <input type="text" id="name" formControlName="nome">
+  @if(pessoaForm.get('nome')?.hasError('required')){
+    <p>O nome é obrigatório</p>
+  }
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" formControlName="email">
+  @if(pessoaForm.get('email')?.hasError('required')){
+    <p>O Email é obrigatório</p>
+  }
+
+  <app-endereco [pessoaForm]="pessoaForm"></app-endereco>
+
+  <button (click)="enviar()" [disabled]="!pessoaForm.valid">Enviar</button>
+</form>
+

@@ -1,0 +1,51 @@
+<form [formGroup]="pessoaForm" (ngSubmit)="onFormSubmit()">
+  <label for="name">Nome:</label>
+  <input type="text" id="name" formControlName="nome">
+  @if(pessoaForm.get('nome')?.hasError('required')){
+    <p>O nome é obrigatório</p>
+  }
+  @if(nome.hasError('required')){
+    <p>O nome é obrigatório</p>
+  }
+
+  <br/>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" formControlName="email">
+  @if(pessoaForm.get('email')?.hasError('required')){
+    <p>O Email é obrigatório</p>
+  }
+
+  <br/><br/>
+
+  <div formGroupName="endereco">
+    <label for="street">Rua:</label>
+    <input type="text" id="street" formControlName="rua">
+    @if(pessoaForm.get('endereco')?.get('rua')?.hasError('required')){
+    <p>A rua é obrigatória</p>
+  }
+
+    <br/>
+
+    <label for="numero">Número:</label>
+    <input type="number" id="numero" formControlName="numero">
+     @if(numero.hasError('required')){
+    <p>O número é obrigatório</p>
+  }
+  </div>
+
+  <br/><br/>
+
+  <button type="submit" [disabled]="!pessoaForm.valid" (click)="mostrarValue()">Enviar</button>
+
+  <br/><br/>
+
+  <button (click)="alteracaoTotal()">Alteração Total</button>
+
+  <br/><br/>
+
+  <button (click)="alteracaoParcial()">Alteração Parcial</button>
+
+  <p>Formulário válido: {{ pessoaForm.valid }}</p>
+  <p>Formulário Endereço válido: {{ pessoaForm.get('endereco')?.valid }}</p>
+</form>
