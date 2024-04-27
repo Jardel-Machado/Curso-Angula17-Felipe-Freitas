@@ -1,0 +1,149 @@
+<div>
+  {{ pessoa.nome | uppercase }}
+</div>
+
+{{ pessoa | json | uppercase }}
+
+<hr />
+<br />
+
+Nome do Usuario: <b>{{ user.nome | truncate : 100 }}</b>
+
+<br />
+
+Status do Usuário: <b>{{ user.status | userStatus }}</b>
+
+<br />
+
+<app-uppercase></app-uppercase>
+<app-lowercase></app-lowercase>
+<app-titlecase></app-titlecase>
+<app-json></app-json>
+<app-slice></app-slice>
+
+<h1>Formato ISO8601:</h1>
+<b>Data convertida para região:</b> {{ minhaData | date : "full" }}
+
+<br /><br />
+
+<b>Data UTC-0:</b> {{ minhaData | date : "full" : "+0000" }}
+
+<br />
+<h1>Formato TimeStamp:</h1>
+<b>TimeStamp para região:</b> {{ 1697922000000 | date : "full" }}
+
+<br /><br />
+
+<b>TimeStamp UTC-0:</b> {{ 1697922000000 | date : "full" : "+0000" }}''
+
+<br />
+
+<h1>Formato Date Obj</h1>
+<b>Data convertida para região:</b> {{ minhaDataObj | date : "full" }}
+
+<br /><br />
+<b>Data UTC-0:</b> {{ minhaDataObj | date : "full" : "+0000" }}
+
+<br />
+<h1>Formatações:</h1>
+Curto: {{ "2023-10-21T21:00:00.000Z" | date : "short" }} <br />
+Médio: {{ "2023-10-21T21:00:00.000Z" | date : "medium" }} <br />
+Longo: {{ "2023-10-21T21:00:00.000Z" | date : "long" }} <br />
+Completo: {{ "2023-10-21T21:00:00.000Z" | date : "full" }} <br />
+
+<b>"Hoje é Saturday dia 21 de October de 2023":</b>
+<p>
+  {{
+    "2023-10-21T21:00:00.000Z"
+      | date : "'Hoje é' EEEE 'dia' dd 'de' MMMM 'de' yyyy"
+  }}
+</p>
+<b>"Hoje é Saturday dia 21 de October de 2023 às 18:00":</b>
+<p>
+  {{
+    "2023-10-21T21:00:00.000Z"
+      | date : "'Hoje é' EEEE 'dia' dd 'de' MMMM 'de' yyyy 'às' HH:mm"
+  }}
+</p>
+<b>"Hoje é Saturday dia 21 de October de 2023 às 18:00 GMT-03:00":</b>
+<p>
+  {{
+    "2023-10-21T21:00:00.000Z"
+      | date : "'Hoje é' EEEE 'dia' dd 'de' MMMM 'de' yyyy 'às' HH:mm zzzz"
+  }}
+</p>
+<b>"Hoje é Saturday dia 21 de October de 2023 às 21:00 GMT+00:00":</b>
+<p>
+  {{
+    "2023-10-21T21:00:00.000Z"
+      | date
+        : "'Hoje é' EEEE 'dia' dd 'de' MMMM 'de' yyyy 'às' HH:mm zzzz"
+        : "+0000"
+  }}
+</p>
+<b>"Data: 21/10/2023 Hora: 18:00 PM":</b>
+<p>
+  {{
+    "2023-10-21T21:00:00.000Z" | date : "'Data:' dd/MM/yyyy 'Hora:' HH:mm aa"
+  }}
+</p>
+
+<h1>Configruando o Locale</h1>
+<p>{{ "2023-10-21T21:00:00.000Z" | date : "full" : undefined : "pt-BR" }}</p>
+
+<br />
+<p>{{ 1200.99 | currency : "BRL" }}</p>
+<br />
+<p>{{ 1200.99 | currency : "BRL" : "code" }}</p>
+<br />
+<p>{{ 1200.99 | currency : "BRL" : "symbol" }}</p>
+<br />
+<p>{{ 1200.99 | currency : "BRL" : "symbol-narrow" }}</p>
+<br />
+<p>{{ 1200.99 | currency : "BRL" : "teste" }}</p>
+
+<br />
+<h1>Pipe Async com observable:</h1>
+<app-obs-com-objeto></app-obs-com-objeto>
+
+<br />
+<app-obs-com-array></app-obs-com-array>
+
+<div *ngIf="userPromise | async as user; else loadingTemplate">
+  <p>Id: {{ user.id }}</p>
+  <p>Nome: {{ user.name }}</p>
+  <p>Usuario: {{ user.username }}</p>
+  <p>E-mail: {{ user.email }}</p>
+</div>
+
+<ng-template #loadingTemplate>
+  <h1>Carregando...</h1>
+</ng-template>
+
+<hr />
+
+<div *ngIf="userByIdPromise | async as userById">
+  <p>Id: {{ userById.id }}</p>
+  <p>Nome: {{ userById.name }}</p>
+  <p>Usuario: {{ userById.username }}</p>
+  <p>E-mail: {{ userById.email }}</p>
+</div>
+
+<hr />
+
+<div *ngFor="let user of users; let i = index">
+  <p>Nome: {{ user.name }}</p>
+  <p>{{ user.status | userStatus }}</p>
+
+  <img
+    [src]="user.status | userStatusImage"
+    width="100"
+    height="100"
+    alt="imagem que representa o status"
+  />
+
+  <button (click)="inactivateUser(i)">Inativar Usuário</button>
+  <hr />
+</div>
+
+<button (click)="addUser()">Adicionar</button>
