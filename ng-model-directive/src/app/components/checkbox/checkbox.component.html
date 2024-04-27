@@ -1,0 +1,58 @@
+<input
+  type="checkbox"
+  id="isActive"
+  name="isActive"
+  [(ngModel)]="isActive"
+  #checkboxFormControl="ngModel"
+  required/>
+<label for="isActive">Ativo</label>
+<p>Usuário Ativo: {{ isActive }}</p>
+
+<p>Válido: {{ checkboxFormControl.valid }}</p>
+<p>Tocado: {{ checkboxFormControl.touched }}</p>
+<p>Sujo: {{ checkboxFormControl.dirty }}</p>
+
+<h1>Separando o Input do Output:</h1>
+
+<input
+  type="checkbox"
+  id="isActive"
+  name="isActive"
+  [ngModel]="isActive"
+  (ngModelChange)="onChange($event)"
+  #checkboxFormControl="ngModel"
+  required/>
+<label for="isActive">Ativo</label>
+<p>Usuário Ativo: {{ isActive }}</p>
+
+<p>Válido: {{ checkboxFormControl.valid }}</p>
+<p>Tocado: {{ checkboxFormControl.touched }}</p>
+<p>Sujo: {{ checkboxFormControl.dirty }}</p>
+
+<h1>Com a Tag Formulário:</h1>
+<form #f="ngForm">
+  <input
+    type="checkbox"
+    id="isActive"
+    name="isActive"
+    [ngModel]="isActive"
+    (ngModelChange)="onChange($event)"
+    #checkboxFormControl="ngModel"
+    required/>
+  <label for="isActive">Ativo</label> <br/>
+  <input
+    type="checkbox"
+    id="isApproved"
+    name="isApproved"
+    [(ngModel)]="isApproved"
+    #checkboxFormControl="ngModel"/>
+  <label for="isApproved">Aprovado</label>
+  <p>Usuário Ativo: {{ isActive }}</p>
+  <p>Usuário Aprovado: {{ isApproved }}</p>
+
+  <button [disabled]="f.invalid">Enviar</button>
+
+  <p>Válido: {{ checkboxFormControl.valid }}</p>
+  <p>Tocado: {{ checkboxFormControl.touched }}</p>
+  <p>Sujo: {{ checkboxFormControl.dirty }}</p>
+</form>

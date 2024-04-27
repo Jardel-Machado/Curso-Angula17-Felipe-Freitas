@@ -1,0 +1,41 @@
+<input type="text" [ngModel]="nome" (ngModelChange)="onChance($event)"/>
+
+<input type="text" [(ngModel)]="nome"/>
+<br/>
+<button (click)="show()">Mostrar</button>
+<br/>
+
+<label>Nome com ngClass:</label>
+<input
+  type="text"
+  ngModel
+  #meuInput
+  #meuInputFormControl="ngModel"
+  [ngClass]="{
+    'valid': meuInputFormControl.valid && meuInputFormControl.touched,
+    'invalid': meuInputFormControl.invalid && meuInputFormControl.touched
+  }"
+  minlength="5"
+  required/> <br/>
+
+<label>Nome com scss:</label>
+<input
+  type="text"
+  ngModel
+  #meuInput
+  #meuInputFormControl="ngModel"
+  minlength="5"
+  required/>
+<div *ngIf="meuInputFormControl.invalid && meuInputFormControl.touched">
+  <div *ngIf="meuInputFormControl.hasError('required')">
+    O campo nome é obrigatório!
+  </div>
+  <div *ngIf="meuInputFormControl.hasError('minlength')">
+    O campo nome deve ter no mínimo 5 caracteres!
+  </div>
+</div>
+<p>Válido: {{ meuInputFormControl.valid }}</p>
+<p>Tocado: {{ meuInputFormControl.touched }}</p>
+<p>Sujo: {{ meuInputFormControl.dirty }}</p>
+
+<button (click)="send()">Enviar</button>
