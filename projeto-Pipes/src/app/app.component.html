@@ -1,0 +1,20 @@
+<h1>{{text | uppercase}}</h1>
+
+<h1>{{pessoa | json}}</h1>
+
+<br/>
+
+<h1 [class]="{
+  'active': pessoa.status === 1,
+  'partial': pessoa.status === 2,
+  'blocked': pessoa.status === 3,
+}">
+{{ pessoa.name}}</h1>
+
+<!--*Melhor solução criar um pipe conforme abaixo:  -->
+
+<h1 [class]="pessoa2.status | statusClass">{{ pessoa2.name}}</h1>
+
+<!--* Não usar essa solução  -->
+<h1 [class]="getStyle(pessoa3.status)">{{ pessoa3.name}}</h1>
+
