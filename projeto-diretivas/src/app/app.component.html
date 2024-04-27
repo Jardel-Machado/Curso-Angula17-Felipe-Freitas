@@ -1,0 +1,83 @@
+<!-- <app-sem-diretiva></app-sem-diretiva>
+========================================================
+
+<app-com-diretiva></app-com-diretiva>
+
+========================================================
+<br/>
+
+<button disabled>Meu botão</button>
+
+<button [attr.disabled]="false">Meu botão attr</button>
+
+<button [disabled]="false">Meu botão prop</button>
+
+<button appDisabled>Meu botão attr diretiva</button>
+
+<button appDisabled>Meu botão prop diretiva</button>
+
+<br/>
+=======================================================
+
+<p style="background-color: orange; color: white;">Parágrafo Normal</p>
+
+<p [attr.style]="'background-color: orange; color: white;'">Attr</p>
+
+<p [style]="'background-color: orange; color: white;'">Prop</p>
+
+<p [style]="{backgroundColor: 'orange', color: 'white'}">Prop Obj</p>
+
+<p appStyle>Diretiva</p>
+
+==================================================================================
+<br/>
+
+<p class="meu-texto">Normal</p>
+<p [attr.class]="'meu-texto'">Attr</p>
+<p [className]="'meu-texto meu-size'">Prop</p>
+<p [class]="{
+  'meu-texto': true,
+  'meu-size': true
+}">Prop Class Name</p>
+
+<p appClass>Diretiva</p>
+
+==================================================================================
+<br>
+<input appListener type="text">
+<br>
+===================================================================================
+<br/>
+
+<input appInputBackground="blue" textColor="white" type="text"/>
+
+<input appInputBackground="orange" textColor="white" type="text"/>
+
+<input [appInputBackground]="appBgColor" textColor="white" type="text"/>
+<br>
+===================================================================================
+<br/>
+
+<div #minhaDiv></div>
+
+<div id="minha-outra-div"></div>
+
+<button (click)="creatElement()">Criar Elemento</button>
+
+<br> -->
+===================================================================================
+<br/>
+
+<div appFocusSecondInput></div>
+
+<div appFocusSecondInput>
+  <input type="text" placeholder="Input 1">
+  <input type="text" placeholder="Input 2">
+  <input type="text" placeholder="Input 3">
+</div>
+
+<button (click)="create()">Criar Elemento</button>
+
+<br/>
+<app-xss></app-xss>
+
