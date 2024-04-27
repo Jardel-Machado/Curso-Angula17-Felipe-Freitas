@@ -1,0 +1,13 @@
+<div class="card">
+  <ng-container [ngTemplateOutlet]="conteudo"></ng-container>
+</div>
+
+<!--* ng-template via Input  -->
+
+<ng-container [ngTemplateOutlet]="header"></ng-container>
+<ng-container [ngTemplateOutlet]="content"></ng-container>
+<ng-container [ngTemplateOutlet]="footer ? footer : defaultFooterTemplate"></ng-container>
+
+<ng-template #defaultFooterTemplate>
+  Sou o Footer Default
+</ng-template>

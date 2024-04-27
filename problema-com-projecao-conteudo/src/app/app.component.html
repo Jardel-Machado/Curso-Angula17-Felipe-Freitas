@@ -1,0 +1,97 @@
+<app-card>
+  <ng-template #contentChild>
+    <app-meu-comp></app-meu-comp>
+  </ng-template>
+</app-card>
+
+<div>
+  Div:
+  <app-meu-comp></app-meu-comp>
+</div>
+
+<ng-container>
+  Container:
+  <app-meu-comp></app-meu-comp>
+</ng-container>
+
+<!--* 1ª forma de iniciar um ng-template  -->
+<ng-container *ngTemplateOutlet="meuTemplate"></ng-container>
+<ng-template #meuTemplate>
+  Template:
+  <app-meu-comp></app-meu-comp>
+</ng-template>
+
+<!--* 2ª forma de iniciar um ng-template  -->
+
+<ng-container *ngIf="condition; else elseTemplate2">
+  <ng-container *ngTemplateOutlet="meuTemplate2"></ng-container>
+</ng-container>
+
+<ng-template #meuTemplate2>
+  Template2:
+  <app-meu-comp></app-meu-comp>
+</ng-template>
+
+<br />
+
+<ng-template #elseTemplate2> Sou o Else Template2 </ng-template>
+
+<!--* 3ª forma de iniciar um ng-template  -->
+<ng-container
+  *ngIf="condition; else elseTemplate3"
+  [ngTemplateOutlet]="meuTemplate3"
+></ng-container>
+
+<ng-template #meuTemplate3>
+  Template3:
+  <app-meu-comp></app-meu-comp>
+</ng-template>
+
+<br />
+
+<ng-template #elseTemplate3> Sou o Else Template3 </ng-template>
+
+<!--* 4ª forma de iniciar um ng-template  -->
+<ng-container
+  *ngTemplateOutlet="condition ? meuTemplate4 : elseTemplate4"
+></ng-container>
+
+<ng-template #meuTemplate4>
+  Template4:
+  <app-meu-comp></app-meu-comp>
+</ng-template>
+
+<br />
+
+<ng-template #elseTemplate4> Sou o Else Template4 </ng-template>
+
+<!--* 5ª forma de iniciar um ng-template  -->
+
+<ng-template [ngIf]="condition" [ngIfElse]="elseTemplate5">
+  Template5:
+  <app-meu-comp></app-meu-comp>
+</ng-template>
+
+<br />
+
+<ng-template #elseTemplate5> Sou o Else Template5 </ng-template>
+
+<!--* ng-template via Input  -->
+
+<ng-template #headerTemplate>
+  <p>Sou o Header</p>
+</ng-template>
+
+<ng-template #contentTemplate>
+  <p>Sou o Content</p>
+</ng-template>
+
+<ng-template #footerTemplate>
+  <p>Sou o Footer</p>
+</ng-template>
+
+<app-card
+  [header]="headerTemplate"
+  [content]="contentTemplate"
+  [footer]="footerTemplate"
+></app-card>
