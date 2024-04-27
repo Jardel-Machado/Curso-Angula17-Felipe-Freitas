@@ -1,0 +1,27 @@
+<!--* Exemplo 1: [ngModel] e (ngModelChange)
+<h1>Nome:</h1>
+<input type="text" [ngModel]="name" (ngModelChange)="handleInputChange($event)"/>
+
+<br/>
+
+<h1>Nome digitado: {{name}}</h1> -->
+
+<!--* Segunda forma de fazer unindo os dois -->
+
+<h1>Nome:</h1>
+<input type="text" [(ngModel)]="name" />
+
+<br/>
+
+<h1>Nome digitado: {{name}}</h1>
+
+
+<!--* Terceira forma de fazer [(ngModel)] com (ngModelChange) -->
+
+<h1>Nome:</h1>
+<input type="text" [(ngModel)]="name" (ngModelChange)="handleInputChange($event)"/>
+
+<br/>
+
+<h1>Nome digitado: {{name}}</h1>
+
