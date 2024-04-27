@@ -1,0 +1,36 @@
+<div class="list">
+  <app-person
+    *ngFor="let person of listPeople; let i = index; let isFirst = first; let isLast = last; let isOdd = odd"
+    [personName]="person.name"
+    [personAge]="person.age"
+    [personIndex]="i"
+    [isFirst]="isFirst"
+    [isLast]="isLast"
+    [isOdd]="isOdd"
+    [isSelected]="personSelectedIndex === i"
+    (onPersonSelectEmitt)="selectPerson($event)"
+  ></app-person>
+</div>
+
+
+
+<!--*Exemplo de for - Bem completo
+<div
+  class="item"
+  [class.item--odd]="isOdd"
+  [class.item--highlighted]="personSelectedIndex === i"
+  (click)="selectPerson(i)"
+  *ngFor="
+  let pessoa of listPessoas;
+  let i = index;
+  let isOdd = odd;
+  let isEven = even;
+  let isFirst = first;
+  let isLast = last;">
+
+
+  <p class="item__name">{{i}} - {{pessoa.nome}}</p>
+  <p class="item__age">{{pessoa.idade}} anos</p>
+  <p class="item__name" *ngIf="isFirst">É o primeiro</p>
+  <p class="item__name" *ngIf="isLast">É o último</p>
+</div> -->
