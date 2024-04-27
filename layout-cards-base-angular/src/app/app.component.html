@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="item">
+    <app-card>
+      <app-header [corFundo]="corFundo1" caminhoImagem="icon-hand.png" titulo="Saldos Disponíveis" tituloSecundario="R$ 100,00">
+      </app-header>
+      <app-content>
+        <app-item conteudo1="Conta Corrente" conteudo2="R$ 200,00"></app-item>
+        <app-linha></app-linha>
+        <app-item conteudo1="Conta Corrente Saldo Vinculados" conteudo2="R$ 300,00"></app-item>
+        <app-linha></app-linha>
+        <app-item conteudo1="Conta Poupança Saldo Vinculados" conteudo2="R$ 400,00"></app-item>
+        <app-linha></app-linha>
+        <app-item conteudo1="Investimentos com Baixa Automática" conteudo2="R$ 500,00"></app-item>
+        <app-linha></app-linha>
+        <app-item conteudo1="Investimentos sem Baixa Automática" conteudo2="R$ 500,00"></app-item>
+        <app-linha></app-linha>
+        <div class="sumario">
+          <app-item conteudo1="SALDO TOTAL" conteudo2="R$ 1000,00"></app-item>
+          <app-item conteudo1="LIVRE PARA MOVIMENTAÇÃO" conteudo2="R$ 1000,00"></app-item>
+        </div>
+      </app-content>
+    </app-card>
+
+  </div>
+  <div class="item">
+    <app-card>
+      <app-header [corFundo]="corFundo1" caminhoImagem="icon-credit-card.png" titulo="Cartão de Crédito"></app-header>
+      <app-content>
+        <app-item [conteudo1]="'1234567891011 \n JARDEL MACHADO PEREIRA'" conteudo2="MASTER CARD"></app-item>
+        <app-item conteudo1="Limite de Compra" conteudo2="R$ 1000,00"></app-item>
+        <app-linha></app-linha>
+        <app-item conteudo1="Disponível" conteudo2="R$ 1200,00"></app-item>
+        <app-item conteudo1="Limite de Saque" conteudo2="R$ 2000,00"></app-item>
+        <app-linha></app-linha>
+        <app-item conteudo1="Disponível" conteudo2="R$ 1300,00"></app-item>
+        <app-item conteudo1="Limite Total Utilizado" conteudo2="R$ 3000,00"></app-item>
+      </app-content>
+    </app-card>
+  </div>
+  <div class="item">
+    <app-card>
+      <app-header [corFundo]="corFundo1" caminhoImagem="icon-debit-card.png" titulo="Cartão de Débito"></app-header>
+      <app-content>
+        <app-item conteudo1="Este cliente não possui Cartão de Débito."></app-item>
+      </app-content>
+    </app-card>
+  </div>
+  <div class="item">
+    <app-card>
+      <app-header [corFundo]="corFundo2" caminhoImagem="icon-client.png" titulo="Informações do Cliente"></app-header>
+      <app-content>
+        <app-item conteudo1="Nome" conteudo2="Jardel Machado Pereira"></app-item>
+        <app-linha></app-linha>
+        <app-item conteudo1="Idade" conteudo2="38 anos"></app-item>
+        <app-linha></app-linha>
+        <app-item conteudo1="Renda Mensal" conteudo2="R$ -1000,00"></app-item>
+        <app-linha></app-linha>
+        <app-item conteudo1="Nacionalidade" conteudo2="Brasileiro"></app-item>
+        <app-linha></app-linha>
+      </app-content>
+    </app-card>
+  </div>
+</div>
+

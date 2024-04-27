@@ -1,0 +1,10 @@
+.item{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  white-space: pre-line;
+
+  p:nth-of-type(1){
+    margin-right: auto;
+  }
+}
